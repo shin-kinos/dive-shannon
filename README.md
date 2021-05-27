@@ -25,7 +25,7 @@ Aligned Multi-FASTA format in amino acid seqeuences.
 
 See the example files in `demo` directory. 
 
-## Useage 
+## Usage 
 * `-i` : The input file name. 
 * `-o` : The output file name.
 
