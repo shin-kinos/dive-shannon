@@ -2,7 +2,7 @@
 Calculate Shannon's entropy a site in MSA.
 
 ## Description  
-* Culculates Shannon`s entropy[1] per site in Multiple Sequence Alignment.  
+* Calculates Shannon`s entropy[1] per site in Multiple Sequence Alignment.  
 
 ## Dependencies 
 ``` 
