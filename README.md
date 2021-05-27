@@ -21,7 +21,7 @@ You can compile the program with `Cargo`.
 ```
 
 ## Input file format 
-Aligned Multi-FASTA format in amino acid seqeuences. 
+Aligned Multi-FASTA format in amino acid sequences. 
 
 See the example files in `demo` directory. 
 
