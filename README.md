@@ -11,14 +11,15 @@ colored = "2.0"
 ``` 
 
 ## Compilation 
-You can compile the program with `Cargo`. 
+You can compile the program with `Cargo`📦.
 
 [e.g.]  
 
 ``` 
 % cd dive-shannon-main
-% build --release
-```
+% cargo build --release
+``` 
+Then the object file will be generated to `./target/release` directory.
 
 ## Input file format 
 Aligned Multi-FASTA format in amino acid sequences. 
@@ -26,6 +27,7 @@ Aligned Multi-FASTA format in amino acid sequences.
 See the example files in `demo` directory. 
 
 ## Usage 
+Required options :
 * `-i` : The input file name. 
 * `-o` : The output file name.
 
