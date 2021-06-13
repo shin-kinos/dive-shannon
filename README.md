@@ -1,5 +1,5 @@
 # dive-shannon
-Calculate Shannon's entropy a site in MSA.
+Calculates Shannon's entropy a site in MSA.
 
 ## Description  
 * Calculates Shannon`s entropy[1] per site in Multiple Sequence Alignment.  
