@@ -5,6 +5,9 @@ Calculates Shannon's entropy a site in MSA.
 * Calculates Shannon`s entropy[1] per site in Multiple Sequence Alignment.  
 
 ## Dependencies 
+
+* `colored` (https://github.com/mackwic/colored)
+
 ``` 
 [dependencies]
 colored = "2.0" 
