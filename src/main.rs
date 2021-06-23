@@ -20,7 +20,7 @@ fn main()
 	println!("Inputfile content");
 	for i in 0 .. ( data.sequence ).len() {
 		println!( "Tile {} : {}", i + 1, ( data.title )[i] );
-		println!("Sequence {} : {}", i + 1, ( data.sequence )[i] );
+		println!(　"Sequence {} : {}", i + 1, ( data.sequence )[i] );
 	}
 	*/
 
