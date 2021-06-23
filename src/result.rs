@@ -73,10 +73,9 @@ fn colorize(arg : &String)
 			'K' | 'R'                         => print!( "{}", (*symbol).to_string().on_blue().black() ),
 			'D' | 'E'                         => print!( "{}", (*symbol).to_string().on_red().black() ),
 			'G' | 'P'                         => print!( "{}", (*symbol).to_string().on_magenta().black() ),
-			'B' | 'Z'                         => print!( "{}", (*symbol).to_string().yellow() ),
+			'B' | 'Z' | 'J'                   => print!( "{}", (*symbol).to_string().yellow() ),
 			'X'                               => print!( "{}", (*symbol).to_string().red() ),
 			_                                 => print!( "{}", (*symbol).to_string() ),
 		}
 	}
 }
-
