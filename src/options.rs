@@ -60,7 +60,7 @@ impl Options {
 		println!( "Input filename  : {}", self.input );
 		println!( "Output filename : {}", self.output );
 		println!( "Colorize        : {}", self.color );
-		println!( "Tolerate BZXU   : {}", self.tolerate );
+		println!( "Tolerate OUBZJX : {}", self.tolerate );
 		println!( "===========================================" );
 	}
 }
@@ -71,7 +71,7 @@ fn show_usage( arg : &String )
 	println!( "   -i\tInput filename in aligned Multi-FASTA format, REQUIRED." );
 	println!( "   -o\tOutput filename, REQUIRED." );
 	println!( "   -c\tColorize each AA displayed on a terminal depending on their\n     \tstereochemical properties ('yes' or 'no', default 'no')." );
-	println!( "   -t\tTolerate AA types 'B', 'Z', 'X' and 'U' in input file ('yes' or 'no', default 'yes').\n    \tIf 'no', program halts when the input file includes B, Z, X, or U." );
+	println!( "   -t\tTolerate AA types 'O', 'U', 'B', 'Z', 'J' and 'X' in input file ('yes' or 'no', default 'yes').\n    \tIf 'no', program halts when the input file includes O, U, B, Z, J, or X." );
 	println!( "   -h\tPrint this help, ignore all other arguments." );
 	println!( "\n" );
 
