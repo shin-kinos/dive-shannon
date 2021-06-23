@@ -8,7 +8,7 @@ pub fn get_shan_ent( site_list : &Vec<String>, arg_t : &String ) -> Vec<f64>
 {
 	unsafe {
 		if *arg_t == "no" { SYMBOL = "ARNDCQEGHILKMFPSTWYV-".chars().collect(); }
-		else              { SYMBOL = "ARNDCQEGHILKMFPSTWYVBZXU-".chars().collect(); }
+		else              { SYMBOL = "ARNDCQEGHILKMFPSTWYVOUBZJX-".chars().collect(); }
 	}
 
 	let mut shan_ent_list : Vec<f64> = Vec::new();
@@ -24,56 +24,19 @@ fn cal_shan_ent( arg : &String ) -> f64
 	let site : Vec<char> = ( *arg ).chars().collect();
 	//println!( "site : {:?}", site );
 
-	let mut freq : HashMap<char, usize> = HashMap::new();
+	//Define the pseudocount (10e-7).
+	let pseudocount : f64 = 0.0000001;
 
-	/*
-	let mut _symbol : Vec<char> = Vec::new();
-	if *arg_ig == "no" { _symbol = "ARNDCQEGHILKMFPSTWYV-".chars().collect(); }
-	else               { _symbol = "ARNDCQEGHILKMFPSTWYVBZXU-".chars().collect(); }
-	*/
-
-
-	/*
-	let _symbol : [char; 24] = [
-		'A',
-		'R',
-		'N',
-		'D',
-		'C',
-		'Q',
-		'E',
-		'G',
-		'H',
-		'I',
-		'L',
-		'K',
-		'M',
-		'F',
-		'P',
-		'S',
-		'T',
-		'W',
-		'Y',
-		'V',
-		'B',
-		'Z',
-		'X',
-		'-'
-	];
-	*/
-
-	/*
-	for aa in _symbol.iter() { freq.insert(*aa, 0); }
-	//println!( "{:?}", freq );
-	*/
+	let mut freq : HashMap<char, f64> = HashMap::new();
 
 	unsafe {
-		for aa in SYMBOL.iter() { freq.insert(*aa, 0); }
+		for aa in SYMBOL.iter() { freq.insert(*aa, pseudocount); }
 	}
 	//println!( "{:?}", freq );
 
 	for aa in site.iter() {
-		let inc : usize = freq[ aa ] + 1;
+		//Count the number of the each AA in a site.
+		let inc : f64 = freq[ aa ] + 1.0;
 		freq.insert( *aa, inc );
 	}
 	//println!( "{:?}", freq );
@@ -82,23 +45,17 @@ fn cal_shan_ent( arg : &String ) -> f64
 
 	let mut shan_ent : f64 = 0.0;
 
-	/*
-	for aa in _symbol.iter() {
-		if freq[ aa ] != 0 {
-			//println!( "Probability of {} : {}", *aa, (freq[ aa ] as f64) / (n as f64) );
-			let prob : f64 = ( freq[ aa ] as f64 ) / ( n as f64 );
-			shan_ent += prob * prob.log2();
-		}
-	}
-	*/
-
 	unsafe {
 		for aa in SYMBOL.iter() {
-			if freq[ aa ] != 0 {
-				//println!( "Probability of {} : {}", *aa, (freq[ aa ] as f64) / (n as f64) );
-				let prob : f64 = ( freq[ aa ] as f64 ) / ( n as f64 );
-				shan_ent += prob * prob.log2();
-			}
+			/*
+			Calculate Shannon's entropy in a site.
+			n = Denominator of the probability, length of a site.
+			freq[ aa ] = Numerator of the probability, frequency of the AA in the site.
+			prob = Probability.
+			shan_ent = Shannon's entropy.
+			*/
+			let prob : f64 = freq[ aa ] / ( n as f64 );
+			shan_ent += prob * prob.log2();
 		}
 	}
 
