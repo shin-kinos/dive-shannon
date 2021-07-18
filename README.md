@@ -39,7 +39,7 @@ Required options :
 ``` 
 % ./dive-shannon -i input.fasta -o output.txt -c no 
 ``` 
-Type `-h` to see another available options. 
+Type `-h` to see other available options. 
 
 ## References 
 1. Shannon, Claude E. "A mathematical theory of communication." The Bell system technical journal 27.3 (1948): 379-423.
